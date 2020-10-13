@@ -21,10 +21,9 @@ public class MultiplicationTable {
                         generatedResult = generatedResult + num1 + "*" + num2 + "=" + product;
                         break;
                     }
-                    for(int z=y; y<=x)
-                    generatedResult +=  String.format(x + "*" + y + "=" + product + "%n");
+                    generatedResult +=  x + "*" + y + "=" + product + ' ';
                 }
-                generatedResult += ' ';
+                //generatedResult += "\n";
             }
         }
         return generatedResult;
