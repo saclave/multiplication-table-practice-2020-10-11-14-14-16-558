@@ -14,16 +14,41 @@ public class MultiplicationTable {
         }
 
         if(generatedResult != null){
-            for(int x = num1; x <= num2; x++){
+            for(int x = num1; x <= num1; x++){
+
                 for(int y=x; y<=num2; y++) {
-                    product = multiplyNumbers(num1, y);
+                    product = multiplyNumbers(x, y);
                     if(num1 == num2){
-                        generatedResult = generatedResult + num1 + "*" + num2 + "=" + product;
+                        generatedResult = generatedResult + num1 + "*" + num1 + "=" + product;
                         break;
                     }
-                    generatedResult +=  x + "*" + y + "=" + product + ' ';
+
+                    if(y == num1){
+                        generatedResult = generatedResult + num1 + "*" + num1 + "=" + product;
+                        generatedResult += "\r\n";
+                    }
+
+                    if(y!=num1) {
+                        generatedResult = generatedResult + x + "*" + y + "=" + product;
+
+                    }
+
+                    if(y>num1){
+                        for(int z = num1+1; z <= y; z++){
+                            product = multiplyNumbers(z, y);
+                            generatedResult = generatedResult + "  " + z + "*" + y + "=" + product;
+
+                            if(z==y){
+                                if(z==num2){
+                                    break;
+                                }
+                                generatedResult += "\r\n";
+                            }
+
+                        }
+                    }
+
                 }
-                //generatedResult += "\n";
             }
         }
         return generatedResult;
